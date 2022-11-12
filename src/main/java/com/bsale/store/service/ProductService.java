@@ -25,7 +25,7 @@ public class ProductService {
 
     public ProductDTO getProductById(long id){
         Product product = productRepository.findById(id).orElseThrow( () ->
-                new ResourceNotFoundEx("Employee", "ID", id));
+                new ResourceNotFoundEx("Product", "ID", id));
         return mapProductToProductDTO(product);
     }
 
@@ -37,9 +37,10 @@ public class ProductService {
     public List<ProductDTO> searchProductByCategory(long categoryId){
         List<ProductDTO> productsDTO = new ArrayList<>();
         productRepository.findAll().forEach(product -> {
-            if(product.getCategory().getId() == categoryId){
-                productsDTO.add(mapProductToProductDTO(product));
+            if(product.getCategory().getId() != categoryId){
+                throw new ResourceNotFoundEx("ProductInCategory", "CATEGORY_ID", categoryId);
             }
+            productsDTO.add(mapProductToProductDTO(product));
         });
         return productsDTO;
     }

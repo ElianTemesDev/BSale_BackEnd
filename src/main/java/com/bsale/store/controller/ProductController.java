@@ -30,4 +30,9 @@ public class ProductController {
     public ResponseEntity<List<ProductDTO>> searchProductByNameAndCategory(@RequestParam("name") String name, @RequestParam("category") long id){
         return new ResponseEntity<>(productService.searchProductByNameAndCategory(name, id), HttpStatus.OK);
     }
+
+    @GetMapping("product")
+    public ResponseEntity<List<ProductDTO>> searchProductByName(@RequestParam("name") String name){
+        return new ResponseEntity<>(productService.searchProductByName(name), HttpStatus.OK);
+    }
 }
