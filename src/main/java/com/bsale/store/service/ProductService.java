@@ -37,18 +37,19 @@ public class ProductService {
     public List<ProductDTO> searchProductByCategory(long categoryId){
         List<ProductDTO> productsDTO = new ArrayList<>();
         productRepository.findAll().forEach(product -> {
-            if(product.getCategory().getId() != categoryId){
-                throw new ResourceNotFoundEx("ProductInCategory", "CATEGORY_ID", categoryId);
-            }
-            productsDTO.add(mapProductToProductDTO(product));
+            if(product.getCategory().getId() == categoryId)
+                productsDTO.add(mapProductToProductDTO(product));
         });
+        if(productsDTO.isEmpty())
+            throw new ResourceNotFoundEx("ProductInCategory", "CATEGORY_ID", categoryId);
+
         return productsDTO;
     }
 
     public List<ProductDTO> searchProductByName(String name) {
         List<ProductDTO> productsDTO = new ArrayList<>();
         productRepository.findAll().forEach(product -> {
-            if(product.getName().contains(name)){
+            if(product.getName().toLowerCase().contains(name)){
                 productsDTO.add(mapProductToProductDTO(product));
             }
         });
@@ -58,7 +59,7 @@ public class ProductService {
     public List<ProductDTO> searchProductByNameAndCategory(String name, long id){
         List<ProductDTO> productsDTO = new ArrayList<>();
         searchProductByCategory(id).forEach(product -> {
-            if(product.getName().contains(name)){
+            if(product.getName().toLowerCase().contains(name)){
                 productsDTO.add(product);
             }
         });
