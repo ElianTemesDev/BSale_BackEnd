@@ -2,8 +2,8 @@ package com.bsale.store.entity;
 
 import lombok.*;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
+import java.util.Objects;
 
 @Entity(name="category")
 @NoArgsConstructor
@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class Category {
+public class Category{
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,4 +19,17 @@ public class Category {
 
     @Column(name = "name")
     private String name;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return id == category.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

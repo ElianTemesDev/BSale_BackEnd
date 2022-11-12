@@ -1,12 +1,11 @@
 package com.bsale.store.controller;
 
-import com.bsale.store.entity.Product;
+import com.bsale.store.dto.ProductDTO;
 import com.bsale.store.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +17,17 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("products")
-    public List<Product> GetProducts(){
+    public List<ProductDTO> getProducts(){
         return productService.getAllProducts();
+    }
+
+    @GetMapping("product/{id}")
+    public ResponseEntity<ProductDTO> getProductById(@PathVariable("id") long id){
+        return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK);
+    }
+
+    @GetMapping("product")
+    public ResponseEntity<List<ProductDTO>> searchProductByNameAndCategory(@RequestParam("name") String name, @RequestParam("category") long id){
+        return new ResponseEntity<>(productService.searchProductByNameAndCategory(name, id), HttpStatus.OK);
     }
 }
