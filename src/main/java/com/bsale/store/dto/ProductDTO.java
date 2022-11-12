@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ProductDTO{
+public class ProductDTO {
     private long id;
     private String name;
     private String urlImage;

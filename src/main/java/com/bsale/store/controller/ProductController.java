@@ -22,9 +22,7 @@ public class ProductController {
     }
 
     @GetMapping("product/{id}")
-    public ResponseEntity<ProductDTO> getProductById(@PathVariable("id") long id){
-        return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK);
-    }
+    public ResponseEntity<ProductDTO> getProductById(@PathVariable("id") long id){ return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK); }
 
     @GetMapping(value = "product", params = "name")
     public ResponseEntity<List<ProductDTO>> searchProductByName(@RequestParam("name") String name){
