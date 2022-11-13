@@ -1,4 +1,8 @@
 # BSale_BackEnd  
+El proyect esta realizado utilizando Spring Boot 2.7.5 con Java 17, ademas de los modulos de Spring, utilizo la biblioteca del proyecto  
+Lombok para reducir el boilerplate por medio de anotations en los controllers, entities y demas, la arquitectura es una por capas donde  
+existen entidades/repositorios/servicios/data-transfer-objects/controladores y ademas existe una carpeta especifica para excepciones y predicados  
+
 API del desafio  
 
 Product:   
