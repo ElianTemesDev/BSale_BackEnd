@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static com.bsale.store.predicates.ProductPredicate.containsName;
 import static com.bsale.store.predicates.ProductPredicate.isOfCategory;
@@ -57,12 +56,12 @@ public class ProductService {
         return productsDTO;
     }
 
-    private void checkResourcesNotFound(List<ProductDTO> products, String resourceName, String fieldName, Object fieldVal){
-        if(products.isEmpty())
+    private void checkResourcesNotFound(List<ProductDTO> products, String resourceName, String fieldName, Object fieldVal) {
+        if (products.isEmpty())
             throw new ResourceNotFoundEx(resourceName, fieldName, fieldVal);
     }
 
-    private List<ProductDTO> filterDTO(List<Product> products, Predicate<ProductDTO> condition){
+    private List<ProductDTO> filterDTO(List<Product> products, Predicate<ProductDTO> condition) {
         return products.stream().map(this::mapProductToProductDTO).filter(condition).collect(Collectors.toList());
     }
 }

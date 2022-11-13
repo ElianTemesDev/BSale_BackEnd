@@ -15,27 +15,29 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
-
+    @CrossOrigin(origins = "*")
     @GetMapping("products")
-    public List<ProductDTO> getProducts(){
+    public List<ProductDTO> getProducts() {
         return productService.getAllProducts();
     }
-
+    @CrossOrigin(origins = "*")
     @GetMapping("product/{id}")
-    public ResponseEntity<ProductDTO> getProductById(@PathVariable("id") long id){ return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK); }
-
+    public ResponseEntity<ProductDTO> getProductById(@PathVariable("id") long id) {
+        return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK);
+    }
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "product", params = "name")
-    public ResponseEntity<List<ProductDTO>> searchProductByName(@RequestParam("name") String name){
+    public ResponseEntity<List<ProductDTO>> searchProductByName(@RequestParam("name") String name) {
         return new ResponseEntity<>(productService.searchProductByName(name.toLowerCase()), HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "product", params = "category")
-    public ResponseEntity<List<ProductDTO>> searchProductByCategory(@RequestParam("category") long id){
+    public ResponseEntity<List<ProductDTO>> searchProductByCategory(@RequestParam("category") long id) {
         return new ResponseEntity<>(productService.searchProductByCategory(id), HttpStatus.OK);
     }
-
-    @GetMapping(value = "product", params = { "name", "category"} )
-    public ResponseEntity<List<ProductDTO>> searchProductByNameAndCategory(@RequestParam("name") String name, @RequestParam(value = "category", required = false) long id){
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "product", params = {"name", "category"})
+    public ResponseEntity<List<ProductDTO>> searchProductByNameAndCategory(@RequestParam("name") String name, @RequestParam(value = "category", required = false) long id) {
         return new ResponseEntity<>(productService.searchProductByNameAndCategory(name.toLowerCase(), id), HttpStatus.OK);
     }
 }
