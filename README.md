@@ -6,6 +6,7 @@ Listar todos, obtencion singular, busqueda por texto parcial.
 Los productos pueden ser llamados tanto por Id como por nombre, categoria y la combinacion de nombre y categoria especifica.
 
 Al realizar una petición HTTP, el servicio retornara un JSON con la siguiente estructura: 
+```JSON
    {
         "id": 5,
         "name": "ENERGETICA MR BIG",
@@ -17,6 +18,7 @@ Al realizar una petición HTTP, el servicio retornara un JSON con la siguiente e
             "name": "bebida energetica"
         }
     }
+``` 
     
 * id, identificador del producto (long)
 * name, nombre del producto (String)
@@ -36,10 +38,12 @@ Listar todos, obtencion singular.
 Las categorias pueden ser llamadas singularmente por Id o se pueden listar todas.
 
 Al realizar una petición HTTP, el servicio retornara un JSON con la siguiente estructura: 
+```JSON
 {
     "id": 1,
     "name": "bebida energetica"
 }
+``` 
 
 * id, identificador de la categoria (long)
 * name, nombre de la categoria (String)
