@@ -1,11 +1,11 @@
-# BSale_BackEnd
-API del desafio
+# BSale_BackEnd  
+API del desafio  
 
-Product: 
-Listar todos, obtencion singular, busqueda por texto parcial.
-Los productos pueden ser llamados tanto por Id como por nombre, categoria y la combinacion de nombre y categoria especifica.
+Product:   
+Listar todos, obtencion singular, busqueda por texto parcial.  
+Los productos pueden ser llamados tanto por Id como por nombre, categoria y la combinacion de nombre y categoria especifica.  
 
-Al realizar una petición HTTP, el servicio retornara un JSON con la siguiente estructura: 
+Al realizar una petición HTTP, el servicio retornara un JSON con la siguiente estructura:   
 ```JSON
    {
         "id": 5,
@@ -20,24 +20,24 @@ Al realizar una petición HTTP, el servicio retornara un JSON con la siguiente e
     }
 ``` 
     
-* id, identificador del producto (long)
-* name, nombre del producto (String)
-* urlImage, url de la imagen pertinente al producto (String)
-* price, precio del producto (double)
-* discount, descuento especifico del producto (int)
-* category, objeto que contiene los datos de la categoria a la que pertenece el producto (Category)
+* id, identificador del producto (long)  
+* name, nombre del producto (String)  
+* urlImage, url de la imagen pertinente al producto (String)  
+* price, precio del producto (double)  
+* discount, descuento especifico del producto (int)  
+* category, objeto que contiene los datos de la categoria a la que pertenece el producto (Category)  
 
-GET Lista de todos los productos: /api/products
-GET Producto por Id: /api/product/{id}
-GET Producto por nombre: /api/product?name={nombre}
-GET Producto por categoria: /api/product?category={categoria}
-GET Producto por nombre y categoria /api/product?name={nombre}&category={categoria}
+GET Lista de todos los productos: /api/products  
+GET Producto por Id: /api/product/{id}  
+GET Producto por nombre: /api/product?name={nombre}  
+GET Producto por categoria: /api/product?category={categoria}  
+GET Producto por nombre y categoria /api/product?name={nombre}&category={categoria}  
 
-Category:
-Listar todos, obtencion singular.
-Las categorias pueden ser llamadas singularmente por Id o se pueden listar todas.
+Category:  
+Listar todos, obtencion singular.  
+Las categorias pueden ser llamadas singularmente por Id o se pueden listar todas.  
 
-Al realizar una petición HTTP, el servicio retornara un JSON con la siguiente estructura: 
+Al realizar una petición HTTP, el servicio retornara un JSON con la siguiente estructura:   
 ```JSON
 {
     "id": 1,
@@ -45,8 +45,8 @@ Al realizar una petición HTTP, el servicio retornara un JSON con la siguiente e
 }
 ``` 
 
-* id, identificador de la categoria (long)
-* name, nombre de la categoria (String)
+* id, identificador de la categoria (long)  
+* name, nombre de la categoria (String)  
 
-GET Lista de todas las categorias: /api/categories
-GET Categoria por Id: /api/category/{id}
+GET Lista de todas las categorias: /api/categories  
+GET Categoria por Id: /api/category/{id}  
